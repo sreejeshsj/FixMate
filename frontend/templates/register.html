@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+    <div class="login-form">
+        <div class="text">REGISTER</div>
+        <form action="{{ url_for('auth.register') }}" method="post">
+            <div class="field">
+                <div class="fas fa-user"></div>
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+            <div class="field">
+                <div class="fas fa-lock"></div>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit">REGISTER</button>
+            <div class="link">
+                Already have an account? <a href="{{ url_for('auth.login') }}">Login</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

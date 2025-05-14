@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixMate - Code Repair</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>FixMate - Code Repair</h1>
+
+        {% if username %}
+            <p>Welcome, {{ username }}! <a href="{{ url_for('logout') }}">Logout</a></p>
+        {% else %}
+            <p><a href="{{ url_for('auth.login') }}">Login</a> | <a href="{{ url_for('auth.register') }}">Register</a></p>
+        {% endif %}
+
+        <form action="/repair" method="POST">
+            <div class="form-group">
+                <label for="code">Source Code:</label>
+                <textarea id="code" name="code" required placeholder="Enter your code here..."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="objective">Function Objective:</label>
+                <input type="text" id="objective" name="objective" required placeholder="Describe what the code should do">
+            </div>
+            <button type="submit">Repair Code</button>
+        </form>
+    </div>
+</body>
+</html>

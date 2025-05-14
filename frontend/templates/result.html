@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixMate - Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Repair Results</h1>
+        
+        <div class="form-group">
+            <h2>Original Code:</h2>
+            <textarea readonly>{{ original_code }}</textarea>
+        </div>
+        <div class="form-group">
+            <h2>Objective Of The Code:</h2>
+            <textarea readonly>{{ obj }}</textarea>
+        </div>
+        
+        <div class="form-group">
+            <h2>Corrected Code:</h2>
+            <textarea readonly>{{ corrected_code }}</textarea>
+        </div>
+        
+        <!-- {% if errors %}
+        <div class="error-list">
+            <h2>Errors Found and Fixed:</h2>
+            {% for error in errors %}
+            <div class="error-item">
+                <strong>{{ error.error_type }} error:</strong> {{ error.message }}
+                {% if error.line_number %}
+                <br>Line number: {{ error.line_number }}
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+         -->
+        <a href="/" class="button">Fix Another Code</a>
+    </div>
+</body>
+</html>
